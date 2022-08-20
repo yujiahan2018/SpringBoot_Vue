@@ -12,13 +12,14 @@ export default {
 
   methods:{
     action(){
+      //注意代理服务的使用方式
       axios.get("http://localhost:8080/data?id=1").then(
         response => {
-          console.log("@@@" , response.data)
+          console.log("Succeed:" , response.data)
         },
 
         err => {
-          console.log("%%%" , err)
+          console.log("Err:" , err)
         }
 
       )
