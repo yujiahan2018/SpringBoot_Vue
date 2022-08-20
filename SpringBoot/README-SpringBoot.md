@@ -16,5 +16,5 @@ lombok <br>
 均UTF-8
 
 ### 访问url
-index: http://localhost:8081/
+index: http://localhost:8081/ <br>
 data: http://localhost:8081/data?id=xxx
