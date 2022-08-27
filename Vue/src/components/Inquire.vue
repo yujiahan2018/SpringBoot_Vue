@@ -1,9 +1,9 @@
 <template>
   <div>
     <h1>查询数据库</h1>
-    <button @click="action('http://localhost:8080/data?id=1')">点击查询id为1的数据（结果控制台输出）</button>
+    <button @click="action('http://localhost:8081/data?id=1')">点击查询id为1的数据（结果控制台输出）</button>
     <hr>
-    <button @click="action('http://localhost:8080/Error')">点击显示错误页消息</button>
+    <button @click="action('http://localhost:8081/Error')">点击显示错误页消息</button>
   </div>
 </template>
 
