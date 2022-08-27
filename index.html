@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>原始前后端数据对接测试</title>
+</head>
+<body>
+  
+  
+
+  <button id="bt">点我发送数据</button>
+
+  <!-- <form action="http://localhost:8081/data" method="GET">
+    <input type="number" name="id">
+    <input type="submit" value="提交"/>
+  </form> -->
+
+  <script>
+    console.log("console.log bt:",document.getElementById("bt"));
+
+    document.getElementById("bt").onclick = function(){
+      console.log("click!")
+
+      var xhr = new XMLHttpRequest();
+      console.log("xhr",xhr);
+
+      xhr.open("get","http://localhost:8081/data?id=1",true);
+      xhr.send();
+      
+      xhr.onreadystatechange = function(){
+        if( xhr.status==200&&xhr.readyState==4 ) 
+          console.log("数据成功返回:",xhr.responseText);
+      }
+
+    }
+  </script>
+
+</body>
+</html>
