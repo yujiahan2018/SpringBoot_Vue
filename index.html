@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="cn">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>原始前后端数据对接测试</title>
+</head>
+
+<body>
+
+    <input type="number">
+    <button id="bt">提交</button>
+
+  <script>
+    console.log("console.log bt:", document.getElementById("bt"));
+
+    document.getElementById("bt").onclick = function () {
+      console.log("click!")
+
+      var xhr = new XMLHttpRequest();
+      console.log("xhr", xhr);
+
+      xhr.open("post", "http://localhost:8081/data", true);
+      xhr.send(
+        "{data: {'id': 1,'password': 'aa'}}"
+      );
+
+      xhr.onreadystatechange = function () {
+        if (xhr.status == 200 && xhr.readyState == 4){
+          console.log("数据成功返回1:", xhr)
+          console.log("数据成功返回2:", xhr.responseText);
+
+          //处理json数据
+          // var json = JSON.parse(xhr.responseText)
+          console.log("数据成功返回3:", JSON.parse(xhr.responseText));
+          // console.log("数据成功返回4:", json);
+        }
+      }
+
+    }
+  </script>
+
+</body>
+
+</html>

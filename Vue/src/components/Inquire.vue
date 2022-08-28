@@ -1,9 +1,11 @@
 <template>
   <div>
-    <h1>查询数据库</h1>
-    <button @click="action('http://localhost:8081/data?id=1')">点击查询id为1的数据（结果控制台输出）</button>
-    <hr>
-    <button @click="action('http://localhost:8081/Error')">点击显示错误页消息</button>
+    <h1>登录</h1>
+    <!-- <form  method="post" action="http://localhost:8081/data" > -->
+      login:<input type="text" name="id" ><br>
+      password:<input type="password" name="password">
+      <button @click="action()"> 提交 </button>
+    <!-- </form> -->
   </div>
 </template>
 
@@ -12,24 +14,34 @@ import axios from 'axios'
 export default {
   name: 'inquire',
 
+  data() {
+    return {
+      id: '',
+      password: '',
+    }
+  },
+
   methods:{
-    action(url){
-      console.log(url)
-      //注意代理服务的使用方式
-      axios.get(url).then(
+    action(){
+      axios.post("http://localhost:8081/data",{
+          data: {
+            id: 1,
+            password: 'aa',
+          },
+          headers: {
+            'Content-Type': 'application/json'
+          },
+        }
+      ).then(
         response => {
-          console.log("Succeed:" , response.data)
-        },
+          
+          console.log(response.data);
 
-        err => {
-          console.log("Err:" , err)
-        },
-
+        }
       )
-    },
-
-
+    }
   }
+
 }
 </script>
 

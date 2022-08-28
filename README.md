@@ -5,4 +5,4 @@ Vue文档的请移步至Vue项目下（相对路径：.\SpringBoot_Vue\Vue）的
 
 ## 技术点
 
-该项目中使用SpringBoot注解通过cors解决跨域问题
+该项目中解决前后端数据对接问题（数据均为json格式）
